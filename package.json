@@ -9,12 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@carbon/icons-react": "^11.10.0",
+    "@carbon/pictograms-react": "^11.33.0",
+    "@carbon/react": "^1.15.0",
     "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
     "eslint": "8.26.0",
-    "eslint-config-next": "12.3.1"
+    "eslint-config-next": "12.3.1",
+    "eslint-prettier": "^0.0.0-empty",
+    "prettier": "^2.7.1",
+    "sass": "^1.55.0",
+    "stylelint": "^14.14.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^29.0.0"
   }
 }

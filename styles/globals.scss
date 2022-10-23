@@ -1,0 +1,5 @@
+@use '@carbon/react';
+
+:root {
+  @include react.theme(react.$g100);
+}
