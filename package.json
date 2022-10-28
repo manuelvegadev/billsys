@@ -12,13 +12,16 @@
     "@carbon/icons-react": "^11.10.0",
     "@carbon/pictograms-react": "^11.33.0",
     "@carbon/react": "^1.15.0",
-    "next": "12.3.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "@supabase/auth-helpers-nextjs": "^0.4.2",
+    "@supabase/auth-helpers-react": "^0.3.1",
+    "@supabase/supabase-js": "^2.0.4",
+    "next": "^13.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "eslint": "8.26.0",
-    "eslint-config-next": "12.3.1",
+    "eslint-config-next": "^13.0.0",
     "eslint-prettier": "^0.0.0-empty",
     "prettier": "^2.7.1",
     "sass": "^1.55.0",

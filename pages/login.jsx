@@ -1,7 +1,7 @@
 import { LoginForm } from "../modules";
 import { Layout } from "../components";
 
-export function Login() {
+export function LoginPage() {
   return (
     <Layout type={"body-only-centered"}>
       <LoginForm />
@@ -9,4 +9,4 @@ export function Login() {
   );
 }
 
-export default Login;
+export default LoginPage;
