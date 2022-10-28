@@ -15,8 +15,9 @@ export const Layout = ({ children, type }) => {
       return (
         <main
           style={{
-            display: "grid",
-            placeContent: "center",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
             minHeight: "100vh",
           }}
         >
