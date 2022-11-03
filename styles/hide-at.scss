@@ -1,0 +1,92 @@
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config';
+
+.hide-at-sm {
+  @include breakpoint-between('sm', 'md') {
+    display: none;
+  }
+}
+
+.hide-at-md {
+  @include breakpoint-between('md', 'lg') {
+    display: none;
+  }
+}
+
+.hide-at-lg {
+  @include breakpoint-between('lg', 'xlg') {
+    display: none;
+  }
+}
+
+.hide-at-xlg {
+  @include breakpoint-between('xlg', 'max') {
+    display: none;
+  }
+}
+
+.hide-at-max {
+  @include breakpoint-up('max') {
+    display: none;
+  }
+}
+
+.hide-down-sm {
+  @include breakpoint-down('sm') {
+    display: none;
+  }
+}
+
+.hide-down-md {
+  @include breakpoint-down('md') {
+    display: none;
+  }
+}
+
+.hide-down-lg {
+  @include breakpoint-down('lg') {
+    display: none;
+  }
+}
+
+.hide-down-xlg {
+  @include breakpoint-down('xlg') {
+    display: none;
+  }
+}
+
+.hide-down-max {
+  @include breakpoint-down('max') {
+    display: none;
+  }
+}
+
+.hide-up-sm {
+  @include breakpoint-up('sm') {
+    display: none;
+  }
+}
+
+.hide-up-md {
+  @include breakpoint-up('md') {
+    display: none;
+  }
+}
+
+.hide-up-lg {
+  @include breakpoint-up('lg') {
+    display: none;
+  }
+}
+
+.hide-up-xlg {
+  @include breakpoint-up('xlg') {
+    display: none;
+  }
+}
+
+.hide-up-max {
+  @include breakpoint-up('max') {
+    display: none;
+  }
+}

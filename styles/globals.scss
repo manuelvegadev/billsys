@@ -1,4 +1,5 @@
 @use '@carbon/react';
+@import 'hide-at';
 
 :root {
   @include react.theme(react.$g100);
