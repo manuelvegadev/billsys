@@ -3,132 +3,57 @@ import {
   HeaderContainer,
   HeaderGlobalAction,
   HeaderGlobalBar,
-  HeaderMenu,
   HeaderMenuButton,
-  HeaderMenuItem,
-  HeaderName,
-  HeaderNavigation,
   SideNav,
   SideNavItems,
   SideNavLink,
-  SideNavMenu,
-  SideNavMenuItem,
-  SkipToContent
+  SkipToContent,
 } from "@carbon/react";
 
-import { Fade, Notification, Search, Switcher as SwitcherIcon } from "@carbon/icons-react";
+import { Logout, Receipt } from "@carbon/icons-react";
+import { useSessionContext } from "@supabase/auth-helpers-react";
+import { useRouter } from "next/router";
+import { Breadcrumb } from "../breadcrumb";
+import { Logo } from "../logo";
 
 export function Header({}) {
-  function action(act) {
-    alert(act);
-  }
+  const { supabaseClient } = useSessionContext();
+  const router = useRouter();
 
   return (
     <HeaderContainer
-      render={({
-        isSideNavExpanded,
-        onClickSideNavExpand,
-      }) => (
-        <>
-          <HeaderCarbon aria-label="IBM Platform Name">
-            <SkipToContent />
-            <HeaderMenuButton
-              aria-label="Open menu"
-              onClick={onClickSideNavExpand}
-              isActive={isSideNavExpanded}
-            />
-            <HeaderName href="#" prefix="IBM">
-              [Platform]
-            </HeaderName>
-            <HeaderNavigation aria-label="IBM [Platform]">
-              <HeaderMenuItem href="#">Link 1</HeaderMenuItem>
-              <HeaderMenuItem href="#">Link 2</HeaderMenuItem>
-              <HeaderMenuItem href="#">Link 3</HeaderMenuItem>
-              <HeaderMenu aria-label="Link 4" menuLinkName="Link 4">
-                <HeaderMenuItem href="#one">Sub-link 1</HeaderMenuItem>
-                <HeaderMenuItem href="#two">Sub-link 2</HeaderMenuItem>
-                <HeaderMenuItem href="#three">Sub-link 3</HeaderMenuItem>
-              </HeaderMenu>
-            </HeaderNavigation>
-            <HeaderGlobalBar>
-              <HeaderGlobalAction
-                aria-label="Search"
-                onClick={() => action("search click")}
-              >
-                <Search size={20} />
-              </HeaderGlobalAction>
-              <HeaderGlobalAction
-                aria-label="Notifications"
-                onClick={() => action("notification click")}
-              >
-                <Notification size={20} />
-              </HeaderGlobalAction>
-              <HeaderGlobalAction
-                aria-label="App Switcher"
-                onClick={() => action("app-switcher click")}
-                tooltipAlignment="end"
-              >
-                <SwitcherIcon size={20} />
-              </HeaderGlobalAction>
-            </HeaderGlobalBar>
-            <SideNav aria-label="Side navigation" expanded={isSideNavExpanded}>
-              <SideNavItems>
-                <SideNavMenu renderIcon={Fade} title="Category title">
-                  <SideNavMenuItem href="https://www.carbondesignsystem.com/">
-                    Link
-                  </SideNavMenuItem>
-                  <SideNavMenuItem href="https://www.carbondesignsystem.com/">
-                    Link
-                  </SideNavMenuItem>
-                  <SideNavMenuItem href="https://www.carbondesignsystem.com/">
-                    Link
-                  </SideNavMenuItem>
-                </SideNavMenu>
-                <SideNavMenu renderIcon={Fade} title="Category title">
-                  <SideNavMenuItem href="https://www.carbondesignsystem.com/">
-                    Link
-                  </SideNavMenuItem>
-                  <SideNavMenuItem href="https://www.carbondesignsystem.com/">
-                    Link
-                  </SideNavMenuItem>
-                  <SideNavMenuItem href="https://www.carbondesignsystem.com/">
-                    Link
-                  </SideNavMenuItem>
-                </SideNavMenu>
-                <SideNavMenu
-                  renderIcon={Fade}
-                  title="Category title"
-                  isActive={true}
-                >
-                  <SideNavMenuItem href="https://www.carbondesignsystem.com/">
-                    Link
-                  </SideNavMenuItem>
-                  <SideNavMenuItem
-                    aria-current="page"
-                    href="https://www.carbondesignsystem.com/"
-                  >
-                    Link
-                  </SideNavMenuItem>
-                  <SideNavMenuItem href="https://www.carbondesignsystem.com/">
-                    Link
-                  </SideNavMenuItem>
-                </SideNavMenu>
-                <SideNavLink
-                  renderIcon={Fade}
-                  href="https://www.carbondesignsystem.com/"
-                >
-                  Link
-                </SideNavLink>
-                <SideNavLink
-                  renderIcon={Fade}
-                  href="https://www.carbondesignsystem.com/"
-                >
-                  Link
-                </SideNavLink>
-              </SideNavItems>
-            </SideNav>
-          </HeaderCarbon>
-        </>
+      render={({ isSideNavExpanded, onClickSideNavExpand }) => (
+        <HeaderCarbon aria-label="Billsys">
+          <SkipToContent />
+          <HeaderMenuButton
+            aria-label="Open menu"
+            onClick={onClickSideNavExpand}
+            isActive={isSideNavExpanded}
+            className={"hide-up-lg"}
+          />
+          <Logo />
+          <Breadcrumb />
+          <HeaderGlobalBar>
+            <HeaderGlobalAction
+              aria-label="Logout"
+              onClick={async () => {
+                await supabaseClient.auth.signOut();
+                await router.push("/");
+              }}
+            >
+              <Logout size={20} />
+            </HeaderGlobalAction>
+          </HeaderGlobalBar>
+          <SideNav
+            aria-label="Side navigation"
+            expanded={isSideNavExpanded}
+            // isFixedNav={true}
+          >
+            <SideNavItems>
+              <SideNavLink renderIcon={Receipt}>Invoices</SideNavLink>
+            </SideNavItems>
+          </SideNav>
+        </HeaderCarbon>
       )}
     />
   );
