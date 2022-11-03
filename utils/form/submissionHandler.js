@@ -1,19 +1,24 @@
 import { useState } from "react";
 
+/**
+ * @param {Function} children
+ * */
 export function SubmissionHandler({ children }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(null);
   const [description, setDescription] = useState("Submitting...");
 
-  function handleSubmit(
-    formEvent,
-    onSubmit
-  ) {
+  /**
+   * @param {React.FormEvent<HTMLFormElement>} formEvent
+   * @param {Function} onSubmit
+   * @return {void}
+   * */
+  function handleSubmit(formEvent, onSubmit) {
     formEvent.preventDefault();
     setIsSubmitting(true);
 
-    onSubmit()
+    onSubmit(formEvent.target)
       .then(() => {
         setError(false);
         setSuccess(true);
@@ -21,13 +26,13 @@ export function SubmissionHandler({ children }) {
       })
       .catch((errorMessage) => {
         setError(errorMessage);
-        setDescription("Submitting...");
+        // setDescription("Submitting...");
       })
       .finally(() => {
         setTimeout(() => {
           setIsSubmitting(false);
-          setSuccess(false);
-          setDescription("Submitting...");
+          // setSuccess(false);
+          // setDescription("Submitting...");
         }, 500);
       });
   }
