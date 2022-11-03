@@ -1,0 +1,13 @@
+.login-form {
+  &__tile {
+    min-width: 320px;
+    width: calc(100% - 40px);
+    max-width: 530px;
+    min-height: 338px;
+  }
+  &__heading {
+    font-size: 1.75rem;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+}
