@@ -1,5 +1,7 @@
-import { Header } from "../../components";
+import { Footer, Header } from "../../components";
 import { Content } from "@carbon/react";
+import { HeaderMinimal } from "../header-minimal";
+import styles from "./layout.module.scss";
 
 export const Layout = ({ children, type }) => {
   switch (type) {
@@ -8,21 +10,19 @@ export const Layout = ({ children, type }) => {
       return (
         <>
           <Header />
-          <Content>{children}</Content>
+          <Content className={styles["layout__content"]}>{children}</Content>
+          <Footer />
         </>
       );
-    case "body-only-centered":
+    case "minimal":
       return (
-        <main
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            minHeight: "100vh",
-          }}
-        >
-          {children}
-        </main>
+        <>
+          <HeaderMinimal />
+          <Content className={styles["layout__content--minimal"]}>
+            {children}
+          </Content>
+          <Footer />
+        </>
       );
   }
 };
