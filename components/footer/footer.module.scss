@@ -1,0 +1,10 @@
+.footer {
+  display: flex;
+  height: 3rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  border-top: 1px solid var(--cds-border-subtle);
+  background-color: var(--cds-background, #ffffff);
+  font-size: 0.85rem;
+}
