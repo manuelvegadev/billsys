@@ -1,21 +1,27 @@
-import Head from "next/head";
-import { Heading } from "@carbon/react";
+import { Button, Heading, Stack } from "@carbon/react";
 import { Layout } from "../components";
-import { withPageAuth } from "@supabase/auth-helpers-nextjs";
+import { useRouter } from "next/router";
+import { Login } from "@carbon/icons-react";
 
-function HomePage() {
+/** @type {import('next').NextPage} */
+export function IndexPage() {
+  const router = useRouter();
   return (
-    <>
-      <Head>
-        <title>Billsys</title>
-      </Head>
-      <Layout>
-        <Heading>Billsys</Heading>
-      </Layout>
-    </>
+    <Layout type={"minimal"}>
+      <Stack gap={7}>
+        <Heading>Home Page</Heading>
+        <Button
+          type={"button"}
+          onClick={async () => {
+            await router.push("/login");
+          }}
+          renderIcon={Login}
+        >
+          Login
+        </Button>
+      </Stack>
+    </Layout>
   );
 }
 
-export const getServerSideProps = withPageAuth({ redirectTo: "/login" });
-
-export default HomePage;
+export default IndexPage;
