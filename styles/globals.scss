@@ -4,3 +4,56 @@
 :root {
   @include react.theme(react.$g100);
 }
+
+hr {
+  width: 100%;
+  border-top: none;
+  border-bottom: 1px solid var(--cds-border-strong);
+}
+
+b {
+  font-weight: bold;
+}
+
+.cds--modal-content {
+  margin-bottom: 0;
+  padding-bottom: 1rem;
+  
+}
+
+.cds--modal-footer {
+  .cds--inline-loading {
+    flex: 0 1 50%;
+    padding: 1rem 63px 2rem 15px;
+    background-color: var(--cds-button-primary-active, #002d9c);
+
+    &__text {
+      font-size: 14px;
+      color: var(--cds-text-on-color, #ffffff);
+    }
+  }
+}
+
+.cds--modal-content:focus,
+.cds--tab-content:focus {
+  outline: none;
+}
+
+.syntax-highlighter code {
+  font-family: 'IBM Plex Mono', monospace !important;
+  font-size: 13px !important;
+}
+
+.react-md {
+  ul ul,
+  ol ol {
+    margin-left: 2rem;
+    margin-bottom: 0;
+  }
+
+  ul,
+  ol,
+  p {
+    margin-bottom: 1em;
+  }
+}
