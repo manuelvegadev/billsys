@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from "react";
 
 export const BreadcrumbContext = createContext({
   breadcrumbItems: [{ title: "App", href: "/" }],
+  setBreadcrumbItems: (breadcrumbItems) => {},
 });
 
 export const BreadcrumbContextProvider = ({ children }) => {
