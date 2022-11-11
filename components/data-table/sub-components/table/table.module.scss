@@ -1,0 +1,54 @@
+.table {
+  
+  &__row {
+
+    &--actionable {
+
+      //border: 2px dashed red !important;
+      position: relative;
+      overflow: hidden;
+
+      & > td:not(.cds--table-column-checkbox) {
+        cursor: pointer;
+      }
+
+      &__icon {
+        
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        position: absolute;
+        right: 0;
+        left: auto;
+        top: 0;
+        bottom: 0;
+        transition: all 70ms cubic-bezier(0, 0, 0.38, 0.9) !important;
+        opacity: 0;
+        overflow: hidden;
+        padding: 0 1rem;
+        background: linear-gradient(90deg, transparent 0%, var(--cds-layer-hover) 50%) !important;
+        cursor: pointer;
+        color: var(--cds-link-primary);
+
+        & svg {
+          transition: inherit;
+          transform: translateX(50%);
+        }
+        
+        &:hover {
+          opacity: .25;
+          svg {
+            transform: translateX(0);
+          }
+        }
+        
+        .table__row--actionable--hover & {
+          opacity: 1;
+          svg {
+            transform: translateX(0);
+          }
+        }
+      }
+    }
+  }
+} 
