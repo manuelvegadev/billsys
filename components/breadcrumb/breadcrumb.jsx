@@ -19,6 +19,7 @@ export function Breadcrumb() {
             await router.push(href);
           }}
           key={prefixId + index}
+          isCurrentPage={index === breadcrumbItems.length - 1}
         >
           {title}
         </BreadcrumbItem>
